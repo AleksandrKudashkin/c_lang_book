@@ -20,7 +20,7 @@ int main()
     }
 
   if (max > 0) /* there was a line */
-    printf("%s", longest);
+    printf("%s %d", longest, max);
 
   return 0;
 }
@@ -30,8 +30,9 @@ int readline(char s[], int lim)
 {
   int c, i;
 
-  for (i = 0; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; ++i)
-    s[i] = c;
+  for (i = 0; (c = getchar()) != EOF && c != '\n'; ++i)
+    if (i < lim - 1)
+      s[i] = c;
 
   if (c == '\n') {
     s[i] = c;
